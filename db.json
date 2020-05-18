@@ -1,0 +1,13 @@
+{
+    "result": [
+    {
+        "id": "12345025",
+        "status": "OK"
+    },
+    {
+        "id": "12345026",
+        "status": "error-duplicate-id",
+        "detail": "duplicate external ids: [12345026]"
+    }
+    ]
+}
