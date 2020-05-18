@@ -9,5 +9,4 @@
         "status": "error-duplicate-id",
         "detail": "duplicate external ids: [12345026]"
     }
-    ]
-}
+]}
