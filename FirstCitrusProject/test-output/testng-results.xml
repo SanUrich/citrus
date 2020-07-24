@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="2" ignored="0" total="3" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="2464" started-at="2020-06-30T13:05:45Z" finished-at="2020-06-30T13:05:48Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="2464" started-at="2020-06-30T13:05:45Z" finished-at="2020-06-30T13:05:48Z">
+      <class name="com.citrus.myproject.CheckXmlMQIT">
+        <test-method status="PASS" signature="beforeSuite(org.testng.ITestContext)[pri:0, instance:com.citrus.myproject.CheckXmlMQIT@4fa1c212]" name="beforeSuite" is-config="true" duration-ms="1164" started-at="2020-06-30T16:05:44Z" finished-at="2020-06-30T16:05:45Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@3d96fa9e]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeSuite -->
+        <test-method status="PASS" signature="PurgeQueue()[pri:0, instance:com.citrus.myproject.CheckXmlMQIT@4fa1c212]" name="PurgeQueue" is-config="true" duration-ms="0" started-at="2020-06-30T16:05:45Z" finished-at="2020-06-30T16:05:45Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- PurgeQueue -->
+        <test-method status="PASS" signature="springTestContextBeforeTestClass()[pri:0, instance:com.citrus.myproject.CheckXmlMQIT@4fa1c212]" name="springTestContextBeforeTestClass" is-config="true" duration-ms="2" started-at="2020-06-30T16:05:45Z" finished-at="2020-06-30T16:05:45Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestClass -->
+        <test-method status="PASS" signature="springTestContextPrepareTestInstance()[pri:0, instance:com.citrus.myproject.CheckXmlMQIT@4fa1c212]" name="springTestContextPrepareTestInstance" is-config="true" duration-ms="0" started-at="2020-06-30T16:05:45Z" depends-on-methods="org.springframework.test.context.testng.AbstractTestNGSpringContextTests.springTestContextBeforeTestClass" finished-at="2020-06-30T16:05:45Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextPrepareTestInstance -->
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.citrus.myproject.CheckXmlMQIT@4fa1c212]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="1" started-at="2020-06-30T16:05:45Z" finished-at="2020-06-30T16:05:45Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.citrus.myproject.CheckXmlMQIT.ChangePIN()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="PASS" signature="ChangePIN()[pri:0, instance:com.citrus.myproject.CheckXmlMQIT@4fa1c212]" name="ChangePIN" duration-ms="1666" started-at="2020-06-30T16:05:45Z" finished-at="2020-06-30T16:05:47Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ChangePIN -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.citrus.myproject.CheckXmlMQIT@4fa1c212]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="0" started-at="2020-06-30T16:05:47Z" finished-at="2020-06-30T16:05:47Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.citrus.myproject.CheckXmlMQIT.ChangePIN()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.citrus.myproject.CheckXmlMQIT@4fa1c212]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="0" started-at="2020-06-30T16:05:47Z" finished-at="2020-06-30T16:05:47Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.citrus.myproject.CheckXmlMQIT.CreatePINBlock()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="FAIL" signature="CreatePINBlock()[pri:0, instance:com.citrus.myproject.CheckXmlMQIT@4fa1c212]" name="CreatePINBlock" duration-ms="581" started-at="2020-06-30T16:05:47Z" finished-at="2020-06-30T16:05:48Z">
+          <exception class="com.consol.citrus.exceptions.TestCaseFailedException">
+            <message>
+              <![CDATA[Validation failed: Values not equal for element '//ns1:response/ns1:CreatePINBlockResponse/@ResultCode', expected '0' but was '1']]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[com.consol.citrus.exceptions.TestCaseFailedException: Validation failed: Values not equal for element '//ns1:response/ns1:CreatePINBlockResponse/@ResultCode', expected '0' but was '1'
+	at com.consol.citrus.TestCase.executeAction(TestCase.java:227)
+	at com.consol.citrus.TestCase.doExecute(TestCase.java:152)
+	at com.consol.citrus.actions.AbstractTestAction.execute(AbstractTestAction.java:42)
+	at com.consol.citrus.Citrus.run(Citrus.java:403)
+	at com.consol.citrus.testng.AbstractTestNGCitrusTest.invokeTestMethod(AbstractTestNGCitrusTest.java:131)
+	at com.consol.citrus.testng.AbstractTestNGCitrusTest.run(AbstractTestNGCitrusTest.java:108)
+	at com.consol.citrus.testng.AbstractTestNGCitrusTest.run(AbstractTestNGCitrusTest.java:70)
+	at org.testng.internal.MethodInvocationHelper.invokeHookable(MethodInvocationHelper.java:221)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:657)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+Caused by: com.consol.citrus.exceptions.ValidationException: Validation failed: Values not equal for element '//ns1:response/ns1:CreatePINBlockResponse/@ResultCode', expected '0' but was '1'
+	at com/citrus/myproject/CreatePINBlock(receive:56-69)
+	at com.consol.citrus.validation.ValidationUtils.validateValues(ValidationUtils.java:144)
+	at com.consol.citrus.validation.xml.XpathMessageValidator.validateMessage(XpathMessageValidator.java:112)
+	at com.consol.citrus.validation.xml.XpathMessageValidator.validateMessage(XpathMessageValidator.java:45)
+	at com.consol.citrus.validation.AbstractMessageValidator.validateMessage(AbstractMessageValidator.java:46)
+	at com.consol.citrus.actions.ReceiveMessageAction.validateMessage(ReceiveMessageAction.java:231)
+	at com.consol.citrus.actions.ReceiveMessageAction.doExecute(ReceiveMessageAction.java:128)
+	at com.consol.citrus.actions.AbstractTestAction.execute(AbstractTestAction.java:42)
+	at com.consol.citrus.TestCase.executeAction(TestCase.java:220)
+	... 27 more
+Caused by: java.lang.IllegalArgumentException: Values not equal for element '//ns1:response/ns1:CreatePINBlockResponse/@ResultCode', expected '0' but was '1'
+	at org.springframework.util.Assert.isTrue(Assert.java:116)
+	at com.consol.citrus.validation.ValidationUtils.validateValues(ValidationUtils.java:115)
+	... 34 more
+]]>
+            </full-stacktrace>
+          </exception> <!-- com.consol.citrus.exceptions.TestCaseFailedException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- CreatePINBlock -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.citrus.myproject.CheckXmlMQIT@4fa1c212]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="1" started-at="2020-06-30T16:05:48Z" finished-at="2020-06-30T16:05:48Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.citrus.myproject.CheckXmlMQIT.CreatePINBlock()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.citrus.myproject.CheckXmlMQIT@4fa1c212]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="1" started-at="2020-06-30T16:05:48Z" finished-at="2020-06-30T16:05:48Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.citrus.myproject.CheckXmlMQIT.NewPIN()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="FAIL" signature="NewPIN()[pri:0, instance:com.citrus.myproject.CheckXmlMQIT@4fa1c212]" name="NewPIN" duration-ms="4" started-at="2020-06-30T16:05:48Z" finished-at="2020-06-30T16:05:48Z">
+          <exception class="com.consol.citrus.exceptions.CitrusRuntimeException">
+            <message>
+              <![CDATA[Failed to load test case]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[com.consol.citrus.exceptions.CitrusRuntimeException: Failed to load test case
+	at com.consol.citrus.context.TestContext.handleError(TestContext.java:448)
+	at com.consol.citrus.common.XmlTestLoader.loadApplicationContext(XmlTestLoader.java:91)
+	at com.consol.citrus.common.XmlTestLoader.load(XmlTestLoader.java:62)
+	at com.consol.citrus.testng.AbstractTestNGCitrusTest.run(AbstractTestNGCitrusTest.java:105)
+	at com.consol.citrus.testng.AbstractTestNGCitrusTest.run(AbstractTestNGCitrusTest.java:70)
+	at org.testng.internal.MethodInvocationHelper.invokeHookable(MethodInvocationHelper.java:221)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:657)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+Caused by: java.lang.IllegalArgumentException: Could not resolve placeholder 'service' in value "com\citrus\myproject\${service}.xml"
+	at org.springframework.util.PropertyPlaceholderHelper.parseStringValue(PropertyPlaceholderHelper.java:172)
+	at org.springframework.util.PropertyPlaceholderHelper.replacePlaceholders(PropertyPlaceholderHelper.java:124)
+	at org.springframework.core.env.AbstractPropertyResolver.doResolvePlaceholders(AbstractPropertyResolver.java:237)
+	at org.springframework.core.env.AbstractPropertyResolver.resolveRequiredPlaceholders(AbstractPropertyResolver.java:211)
+	at org.springframework.core.env.AbstractEnvironment.resolveRequiredPlaceholders(AbstractEnvironment.java:571)
+	at org.springframework.context.support.AbstractRefreshableConfigApplicationContext.resolvePath(AbstractRefreshableConfigApplicationContext.java:125)
+	at org.springframework.context.support.AbstractRefreshableConfigApplicationContext.setConfigLocations(AbstractRefreshableConfigApplicationContext.java:81)
+	at org.springframework.context.support.ClassPathXmlApplicationContext.<init>(ClassPathXmlApplicationContext.java:142)
+	at com.consol.citrus.common.XmlTestLoader.loadApplicationContext(XmlTestLoader.java:86)
+	... 24 more
+]]>
+            </full-stacktrace>
+          </exception> <!-- com.consol.citrus.exceptions.CitrusRuntimeException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NewPIN -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.citrus.myproject.CheckXmlMQIT@4fa1c212]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="1" started-at="2020-06-30T16:05:48Z" finished-at="2020-06-30T16:05:48Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.citrus.myproject.CheckXmlMQIT.NewPIN()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method status="PASS" signature="springTestContextAfterTestClass()[pri:0, instance:com.citrus.myproject.CheckXmlMQIT@4fa1c212]" name="springTestContextAfterTestClass" is-config="true" duration-ms="0" started-at="2020-06-30T16:05:48Z" finished-at="2020-06-30T16:05:48Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestClass -->
+        <test-method status="PASS" signature="afterSuite(org.testng.ITestContext)[pri:0, instance:com.citrus.myproject.CheckXmlMQIT@4fa1c212]" name="afterSuite" is-config="true" duration-ms="42" started-at="2020-06-30T16:05:48Z" finished-at="2020-06-30T16:05:48Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@3d96fa9e]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterSuite -->
+      </class> <!-- com.citrus.myproject.CheckXmlMQIT -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

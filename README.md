@@ -1,2 +1,0 @@
-# citrus
-Test citrus framework
