@@ -1,0 +1,8 @@
+<ns1:response type="String" xsi:schemaLocation="http://www.vtb24.ru/ApplicationObjectLibrary/TWOSH/Providers/BankCardTWOSHProvA/V1 file:///E:/git/NeoFlex_MDS/oracle_mds/v1/src/apps/EDM/VTB24/ApplicationObjectLibrary/TWOSH/Providers/BankCardTWOSHProvA/V1/NewPin_Response.xsd" xmlns:ns1="http://www.vtb24.ru/ApplicationObjectLibrary/TWOSH/Providers/BankCardTWOSHProvA/V1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<ns1:NewPINResponse ErrorString="" ResultCode="0">
+		<ns1:Messageid>"${messageIDout}"</ns1:Messageid>
+		<ns1:MessageDate>"${mydate}"</ns1:MessageDate>
+		<ns1:Key>7a7a7a7a</ns1:Key>
+		<ns1:KeyId>4294967295</ns1:KeyId>
+	</ns1:NewPINResponse>
+</ns1:response>

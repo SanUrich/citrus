@@ -1,0 +1,10 @@
+-------------------------------------------------------------------------------
+Test set: TestSuite
+-------------------------------------------------------------------------------
+Tests run: 4, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 7.489 s <<< FAILURE! - in TestSuite
+checkJson(com.citrus.myproject.SampleXmlIT)  Time elapsed: 5.252 s  <<< FAILURE!
+com.consol.citrus.exceptions.TestCaseFailedException: I/O error on POST request for "http://localhost:3000/out": Connect to localhost:3000 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect; nested exception is org.apache.http.conn.HttpHostConnectException: Connect to localhost:3000 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect
+Caused by: org.springframework.web.client.ResourceAccessException: I/O error on POST request for "http://localhost:3000/out": Connect to localhost:3000 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect; nested exception is org.apache.http.conn.HttpHostConnectException: Connect to localhost:3000 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect
+Caused by: org.apache.http.conn.HttpHostConnectException: Connect to localhost:3000 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect
+Caused by: java.net.ConnectException: Connection refused: connect
+

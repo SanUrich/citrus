@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<spring:beans xmlns="http://www.citrusframework.org/schema/testcase" 
+              xmlns:jms="http://www.citrusframework.org/schema/jms/testcase"
+              xmlns:ws="http://www.citrusframework.org/schema/ws/testcase"
+              xmlns:spring="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd 
+                  http://www.citrusframework.org/schema/jms/testcase http://www.citrusframework.org/schema/jms/testcase/citrus-jms-testcase.xsd
+                  http://www.citrusframework.org/schema/ws/testcase http://www.citrusframework.org/schema/ws/testcase/citrus-ws-testcase.xsd
+                  http://www.citrusframework.org/schema/testcase http://www.citrusframework.org/schema/testcase/citrus-testcase.xsd">
+
+	<template name="doSendMessage">
+			<echo>
+		          <message>Send message ${myServiceName} with templates: "citrus:currentDate('hh:mm:ss.SSSZ')"</message>
+		    </echo>
+	    	<send endpoint="jms:${jmsQueueReq}?connectionFactory=jmsQueueConnectionFactory">
+	    		<message>
+	    			<resource file="classpath:templates/jmsXMLRequest.xml" />
+	    		</message>
+	    		<header>
+					<element name="ServiceName" value="${myServiceName}"/>
+				</header>
+			</send>
+	</template>
+
+  <testcase name="NewPIN">
+    <meta-info>
+      <author>SanUrich</author>
+      <creationdate>2020-05-21</creationdate>
+      <status>DRAFT</status>
+      <last-updated-by>SanUrich</last-updated-by>
+      <last-updated-on>2020-05-22T10:00:00</last-updated-on>
+    </meta-info>
+    
+    <description>Check integration with IBM MQ.</description>
+    
+    <variables>
+        <variable name="mydate" value="citrus:currentDate('yyyy-MM-dd'T'hh:mm:ss')"/>
+        <variable name="messageID" value="citrus:randomNumber(10)"/>
+        <variable name="myServiceName" value="NewPIN"/>
+    </variables>
+    
+    <actions>
+    	<trace-variables>
+ 
+        </trace-variables>
+        
+<!--     	<load>
+            <properties file="file:c:\Workspace\CitrusFM\FirstCitrusProject\load.properties"/>
+        </load> -->
+        <parallel>
+        	<iterate condition="i lt=${messageCount}" index="i">
+        	
+        		<call-template name="doSendMessage"/>
+        	</iterate>
+        	
+<!-- 	        <sequential>
+	        	<sleep/>
+	        	<echo>
+						<message>This is firstSeqMessage</message>
+				</echo>
+	        	<sleep/>
+	        	<echo>
+						<message>This is secondSeqMessage</message>
+				</echo>
+	        </sequential> -->
+    	</parallel>
+		
+		<iterate condition="i lt=${messageCount}" index="i">
+<!--     <catch exception="com.consol.citrus.exceptions.CitrusRuntimeException"> -->
+	    	 <receive endpoint="responseQueue">
+	    		<selector>
+	    			<element name="ServiceName" value="${myServiceName}" />
+	    			<element name="ServiceName" value="${myServiceName}" />
+				</selector>
+			    <message schema-validation="false">
+			        <validate>
+			        	<xpath expression="//ns1:response/ns1:NewPINResponse/@ResultCode" value="0"/>
+			        	<xpath expression="//ns1:response/ns1:NewPINResponse/@ErrorString" value=""/>
+	
+	        			<!-- <namespace prefix="ns1" value='http://www.vtb24.ru/ApplicationObjectLibrary/TWOSH/Providers/BankCardTWOSHProvA/V1'/> -->
+			        </validate>
+			    </message>
+			    <header>
+	    			<element name="ServiceName" value="${myServiceName}"/>
+				</header>
+		  	</receive>
+<!-- 	  </catch> -->
+		</iterate>
+	    
+    </actions>
+    
+    <finally>
+		<echo>
+			<message>The End!</message>
+		</echo>
+	</finally>
+    
+  </testcase>
+
+</spring:beans>

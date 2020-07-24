@@ -1,0 +1,268 @@
+<html>
+<head>
+<title>TestNG:  Default test</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>Default test</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>1/2/0</td>
+</tr><tr>
+<td>Started on:</td><td>Tue Jun 30 16:05:45 MSK 2020</td>
+</tr>
+<tr><td>Total time:</td><td>2 seconds (2464 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='com.citrus.myproject.CheckXmlMQIT.CreatePINBlock()'><b>CreatePINBlock</b><br>Test class: com.citrus.myproject.CheckXmlMQIT</td>
+<td><div><pre>com.consol.citrus.exceptions.TestCaseFailedException: Validation failed: Values not equal for element &apos;//ns1:response/ns1:CreatePINBlockResponse/@ResultCode&apos;, expected &apos;0&apos; but was &apos;1&apos;
+	at com.consol.citrus.TestCase.executeAction(TestCase.java:227)
+	at com.consol.citrus.TestCase.doExecute(TestCase.java:152)
+	at com.consol.citrus.actions.AbstractTestAction.execute(AbstractTestAction.java:42)
+	at com.consol.citrus.Citrus.run(Citrus.java:403)
+	at com.consol.citrus.testng.AbstractTestNGCitrusTest.invokeTestMethod(AbstractTestNGCitrusTest.java:131)
+	at com.consol.citrus.testng.AbstractTestNGCitrusTest.run(AbstractTestNGCitrusTest.java:108)
+	at com.consol.citrus.testng.AbstractTestNGCitrusTest.run(AbstractTestNGCitrusTest.java:70)
+	at org.testng.internal.MethodInvocationHelper.invokeHookable(MethodInvocationHelper.java:221)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:657)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+Caused by: com.consol.citrus.exceptions.ValidationException: Validation failed: Values not equal for element &apos;//ns1:response/ns1:CreatePINBlockResponse/@ResultCode&apos;, expected &apos;0&apos; but was &apos;1&apos;
+	at com/citrus/myproject/CreatePINBlock(receive:56-69)
+	at com.consol.citrus.validation.ValidationUtils.validateValues(ValidationUtils.java:144)
+	at com.consol.citrus.validation.xml.XpathMessageValidator.validateMessage(XpathMessageValidator.java:112)
+	at com.consol.citrus.validation.xml.XpathMessageValidator.validateMessage(XpathMessageValidator.java:45)
+	at com.consol.citrus.validation.AbstractMessageValidator.validateMessage(AbstractMessageValidator.java:46)
+	at com.consol.citrus.actions.ReceiveMessageAction.validateMessage(ReceiveMessageAction.java:231)
+	at com.consol.citrus.actions.ReceiveMessageAction.doExecute(ReceiveMessageAction.java:128)
+	at com.consol.citrus.actions.AbstractTestAction.execute(AbstractTestAction.java:42)
+	at com.consol.citrus.TestCase.executeAction(TestCase.java:220)
+	... 27 more
+Caused by: java.lang.IllegalArgumentException: Values not equal for element &apos;//ns1:response/ns1:CreatePINBlockResponse/@ResultCode&apos;, expected &apos;0&apos; but was &apos;1&apos;
+	at org.springframework.util.Assert.isTrue(Assert.java:116)
+	at com.consol.citrus.validation.ValidationUtils.validateValues(ValidationUtils.java:115)
+	... 34 more
+</pre></div><a href='#' onClick='toggleBox("stack-trace1088649990", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1088649990'><pre>com.consol.citrus.exceptions.TestCaseFailedException: Validation failed: Values not equal for element &apos;//ns1:response/ns1:CreatePINBlockResponse/@ResultCode&apos;, expected &apos;0&apos; but was &apos;1&apos;
+	at com.consol.citrus.TestCase.executeAction(TestCase.java:227)
+	at com.consol.citrus.TestCase.doExecute(TestCase.java:152)
+	at com.consol.citrus.actions.AbstractTestAction.execute(AbstractTestAction.java:42)
+	at com.consol.citrus.Citrus.run(Citrus.java:403)
+	at com.consol.citrus.testng.AbstractTestNGCitrusTest.invokeTestMethod(AbstractTestNGCitrusTest.java:131)
+	at com.consol.citrus.testng.AbstractTestNGCitrusTest.run(AbstractTestNGCitrusTest.java:108)
+	at com.consol.citrus.testng.AbstractTestNGCitrusTest.run(AbstractTestNGCitrusTest.java:70)
+	at org.testng.internal.MethodInvocationHelper.invokeHookable(MethodInvocationHelper.java:221)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:657)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+Caused by: com.consol.citrus.exceptions.ValidationException: Validation failed: Values not equal for element &apos;//ns1:response/ns1:CreatePINBlockResponse/@ResultCode&apos;, expected &apos;0&apos; but was &apos;1&apos;
+	at com/citrus/myproject/CreatePINBlock(receive:56-69)
+	at com.consol.citrus.validation.ValidationUtils.validateValues(ValidationUtils.java:144)
+	at com.consol.citrus.validation.xml.XpathMessageValidator.validateMessage(XpathMessageValidator.java:112)
+	at com.consol.citrus.validation.xml.XpathMessageValidator.validateMessage(XpathMessageValidator.java:45)
+	at com.consol.citrus.validation.AbstractMessageValidator.validateMessage(AbstractMessageValidator.java:46)
+	at com.consol.citrus.actions.ReceiveMessageAction.validateMessage(ReceiveMessageAction.java:231)
+	at com.consol.citrus.actions.ReceiveMessageAction.doExecute(ReceiveMessageAction.java:128)
+	at com.consol.citrus.actions.AbstractTestAction.execute(AbstractTestAction.java:42)
+	at com.consol.citrus.TestCase.executeAction(TestCase.java:220)
+	... 27 more
+Caused by: java.lang.IllegalArgumentException: Values not equal for element &apos;//ns1:response/ns1:CreatePINBlockResponse/@ResultCode&apos;, expected &apos;0&apos; but was &apos;1&apos;
+	at org.springframework.util.Assert.isTrue(Assert.java:116)
+	at com.consol.citrus.validation.ValidationUtils.validateValues(ValidationUtils.java:115)
+	... 34 more
+</pre></div></td>
+<td>0</td>
+<td>com.citrus.myproject.CheckXmlMQIT@4fa1c212</td></tr>
+<tr>
+<td title='com.citrus.myproject.CheckXmlMQIT.NewPIN()'><b>NewPIN</b><br>Test class: com.citrus.myproject.CheckXmlMQIT</td>
+<td><div><pre>com.consol.citrus.exceptions.CitrusRuntimeException: Failed to load test case
+	at com.consol.citrus.context.TestContext.handleError(TestContext.java:448)
+	at com.consol.citrus.common.XmlTestLoader.loadApplicationContext(XmlTestLoader.java:91)
+	at com.consol.citrus.common.XmlTestLoader.load(XmlTestLoader.java:62)
+	at com.consol.citrus.testng.AbstractTestNGCitrusTest.run(AbstractTestNGCitrusTest.java:105)
+	at com.consol.citrus.testng.AbstractTestNGCitrusTest.run(AbstractTestNGCitrusTest.java:70)
+	at org.testng.internal.MethodInvocationHelper.invokeHookable(MethodInvocationHelper.java:221)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:657)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+Caused by: java.lang.IllegalArgumentException: Could not resolve placeholder &apos;service&apos; in value &quot;com\citrus\myproject\${service}.xml&quot;
+	at org.springframework.util.PropertyPlaceholderHelper.parseStringValue(PropertyPlaceholderHelper.java:172)
+	at org.springframework.util.PropertyPlaceholderHelper.replacePlaceholders(PropertyPlaceholderHelper.java:124)
+	at org.springframework.core.env.AbstractPropertyResolver.doResolvePlaceholders(AbstractPropertyResolver.java:237)
+	at org.springframework.core.env.AbstractPropertyResolver.resolveRequiredPlaceholders(AbstractPropertyResolver.java:211)
+	at org.springframework.core.env.AbstractEnvironment.resolveRequiredPlaceholders(AbstractEnvironment.java:571)
+	at org.springframework.context.support.AbstractRefreshableConfigApplicationContext.resolvePath(AbstractRefreshableConfigApplicationContext.java:125)
+	at org.springframework.context.support.AbstractRefreshableConfigApplicationContext.setConfigLocations(AbstractRefreshableConfigApplicationContext.java:81)
+	at org.springframework.context.support.ClassPathXmlApplicationContext.&lt;init&gt;(ClassPathXmlApplicationContext.java:142)
+	at com.consol.citrus.common.XmlTestLoader.loadApplicationContext(XmlTestLoader.java:86)
+	... 24 more
+</pre></div><a href='#' onClick='toggleBox("stack-trace1503546689", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1503546689'><pre>com.consol.citrus.exceptions.CitrusRuntimeException: Failed to load test case
+	at com.consol.citrus.context.TestContext.handleError(TestContext.java:448)
+	at com.consol.citrus.common.XmlTestLoader.loadApplicationContext(XmlTestLoader.java:91)
+	at com.consol.citrus.common.XmlTestLoader.load(XmlTestLoader.java:62)
+	at com.consol.citrus.testng.AbstractTestNGCitrusTest.run(AbstractTestNGCitrusTest.java:105)
+	at com.consol.citrus.testng.AbstractTestNGCitrusTest.run(AbstractTestNGCitrusTest.java:70)
+	at org.testng.internal.MethodInvocationHelper.invokeHookable(MethodInvocationHelper.java:221)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:657)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+Caused by: java.lang.IllegalArgumentException: Could not resolve placeholder &apos;service&apos; in value &quot;com\citrus\myproject\${service}.xml&quot;
+	at org.springframework.util.PropertyPlaceholderHelper.parseStringValue(PropertyPlaceholderHelper.java:172)
+	at org.springframework.util.PropertyPlaceholderHelper.replacePlaceholders(PropertyPlaceholderHelper.java:124)
+	at org.springframework.core.env.AbstractPropertyResolver.doResolvePlaceholders(AbstractPropertyResolver.java:237)
+	at org.springframework.core.env.AbstractPropertyResolver.resolveRequiredPlaceholders(AbstractPropertyResolver.java:211)
+	at org.springframework.core.env.AbstractEnvironment.resolveRequiredPlaceholders(AbstractEnvironment.java:571)
+	at org.springframework.context.support.AbstractRefreshableConfigApplicationContext.resolvePath(AbstractRefreshableConfigApplicationContext.java:125)
+	at org.springframework.context.support.AbstractRefreshableConfigApplicationContext.setConfigLocations(AbstractRefreshableConfigApplicationContext.java:81)
+	at org.springframework.context.support.ClassPathXmlApplicationContext.&lt;init&gt;(ClassPathXmlApplicationContext.java:142)
+	at com.consol.citrus.common.XmlTestLoader.loadApplicationContext(XmlTestLoader.java:86)
+	... 24 more
+</pre></div></td>
+<td>0</td>
+<td>com.citrus.myproject.CheckXmlMQIT@4fa1c212</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='com.citrus.myproject.CheckXmlMQIT.ChangePIN()'><b>ChangePIN</b><br>Test class: com.citrus.myproject.CheckXmlMQIT</td>
+<td></td>
+<td>1</td>
+<td>com.citrus.myproject.CheckXmlMQIT@4fa1c212</td></tr>
+</table><p>
+</body>
+</html>

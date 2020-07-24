@@ -1,0 +1,10 @@
+{
+  "message" : [ {
+    "id" : "${MessId1}",
+    "address" : "9093338804",
+    "text" : "Установлен ПИН-код для карты 8420",
+    "type" : "set_pin",
+    "clientId" : "12345025",
+    "source" : "4GCIF"
+  } ]
+}

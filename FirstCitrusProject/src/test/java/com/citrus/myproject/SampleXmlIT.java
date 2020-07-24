@@ -1,0 +1,22 @@
+package com.citrus.myproject;
+
+import org.testng.annotations.Test;
+
+import com.consol.citrus.annotations.CitrusXmlTest;
+import com.consol.citrus.testng.AbstractTestNGCitrusTest;
+
+/**
+ * This is a sample Citrus integration test for loading XML syntax test case.
+ *
+ * @author Citrus
+ */
+@Test
+public class SampleXmlIT extends AbstractTestNGCitrusTest {
+
+	
+	/* @CitrusXmlTest(name = "SampleXmlIT") public void sampleXml() {} */
+	  
+	  @CitrusXmlTest(name = "checkJson") public void checkJson() {}
+	 
+
+}

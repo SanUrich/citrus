@@ -1,0 +1,13 @@
+{
+  "result": [
+    {
+      "id": "${MesId1}",
+      "status": "OK"
+    },
+    {
+      "id": "${MesId2}",
+      "status": "error-duplicate-id",
+      "detail": "duplicate external ids: [${MesId2}]"
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<spring:beans xmlns="http://www.citrusframework.org/schema/testcase" 
+              xmlns:jms="http://www.citrusframework.org/schema/jms/testcase"
+              xmlns:ws="http://www.citrusframework.org/schema/ws/testcase"
+              xmlns:spring="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd 
+                  http://www.citrusframework.org/schema/jms/testcase http://www.citrusframework.org/schema/jms/testcase/citrus-jms-testcase.xsd
+                  http://www.citrusframework.org/schema/ws/testcase http://www.citrusframework.org/schema/ws/testcase/citrus-ws-testcase.xsd
+                  http://www.citrusframework.org/schema/testcase http://www.citrusframework.org/schema/testcase/citrus-testcase.xsd">
+
+  <testcase name="CreatePINBlock">
+    <meta-info>
+      <author>SanUrich</author>
+      <creationdate>2020-05-21</creationdate>
+      <status>DRAFT</status>
+      <last-updated-by>SanUrich</last-updated-by>
+      <last-updated-on>2020-05-22T10:00:00</last-updated-on>
+    </meta-info>
+    
+    <description>Check integration with IBM MQ.</description>
+    
+    <variables>
+        <variable name="mydate" value="citrus:currentDate('yyyy-MM-dd'T'hh:mm:ss')"/>
+        <variable name="messageID" value="citrus:randomNumber(10)"/>
+        <variable name="myServiceName" value="CreatePINBlock"/>
+    </variables>
+    
+    <actions>
+        <!-- <parallel> -->
+        
+<!-- 	        <sequential>
+	        	<sleep/>
+	        	<echo>
+						<message>This is firstSeqMessage</message>
+				</echo>
+	        	<sleep/>
+	        	<echo>
+						<message>This is secondSeqMessage</message>
+				</echo>
+	        </sequential> -->
+	        
+	    	<echo>
+		          <message>Send message ${myServiceName}: "citrus:currentDate('hh:mm:ss.SSSZ')"</message>
+		    </echo>
+			<send endpoint="requestQueue">
+	    		<message>
+	    			<resource file="classpath:templates/jmsXMLRequest.xml" />
+	    		</message>
+	    		<header>
+					<element name="ServiceName" value="${myServiceName}"/>
+				</header>
+	
+			</send>
+    	<!-- </parallel> -->
+
+	    <receive endpoint="responseQueue">
+    		<selector>
+    			<element name="ServiceName" value="${myServiceName}" />
+			</selector>
+		    <message type="xml" schema-validation="false">
+		        <validate>
+		        	<xpath expression="//ns1:response/ns1:CreatePINBlockResponse/@ResultCode" value="0"/>
+		        	<xpath expression="//ns1:response/ns1:CreatePINBlockResponse/@ErrorString" value=""/>
+		        </validate>
+		    </message>
+		    <header>
+    			<element name="ServiceName" value="${myServiceName}"/>
+			</header>
+	  	</receive>
+	    
+    </actions>
+    
+  </testcase>
+
+</spring:beans>

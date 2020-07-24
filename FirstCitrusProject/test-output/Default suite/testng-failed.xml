@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
+  <test name="Default test(failed)">
+    <classes>
+      <class name="com.citrus.myproject.CheckXmlMQIT">
+        <methods>
+          <include name="springTestContextBeforeTestClass"/>
+          <include name="CreatePINBlock"/>
+          <include name="afterSuite"/>
+          <include name="springTestContextPrepareTestInstance"/>
+          <include name="springTestContextAfterTestClass"/>
+          <include name="springTestContextBeforeTestMethod"/>
+          <include name="PurgeQueue"/>
+          <include name="springTestContextAfterTestMethod"/>
+          <include name="NewPIN"/>
+          <include name="beforeSuite"/>
+        </methods>
+      </class> <!-- com.citrus.myproject.CheckXmlMQIT -->
+    </classes>
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->

@@ -1,0 +1,11 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<request
+    xmlns:ns1="http://www.vtb24.ru/ApplicationObjectLibrary/TWOSH/Providers/BankCardTWOSHProvA/V1"
+    type="NewPIN"
+    xmlns:env="http://schemas.xmlsoap.org/soap/envelope/"
+    xmlns:wsa="http://www.w3.org/2005/08/addressing">
+    <NewPINRequest>
+        <Messageid>"citrus:randomNumber(10)"</Messageid>
+        <MessageDate>"citrus:currentDate('yyyy-MM-dd'T'hh:mm:ss.SSSZ')"</MessageDate>
+    </NewPINRequest>
+</request>

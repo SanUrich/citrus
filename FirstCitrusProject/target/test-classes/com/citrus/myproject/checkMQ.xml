@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<spring:beans xmlns="http://www.citrusframework.org/schema/testcase" 
+              xmlns:jms="http://www.citrusframework.org/schema/jms/testcase"
+              xmlns:ws="http://www.citrusframework.org/schema/ws/testcase"
+              xmlns:spring="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd 
+                  http://www.citrusframework.org/schema/jms/testcase http://www.citrusframework.org/schema/jms/testcase/citrus-jms-testcase.xsd
+                  http://www.citrusframework.org/schema/ws/testcase http://www.citrusframework.org/schema/ws/testcase/citrus-ws-testcase.xsd
+                  http://www.citrusframework.org/schema/testcase http://www.citrusframework.org/schema/testcase/citrus-testcase.xsd">
+
+  <testcase name="checkMQ">
+    <meta-info>
+      <author>SanUrich</author>
+      <creationdate>2020-05-21</creationdate>
+      <status>DRAFT</status>
+      <last-updated-by>SanUrich</last-updated-by>
+      <last-updated-on>2020-05-22T10:00:00</last-updated-on>
+    </meta-info>
+    
+    <description>Check integration with IBM MQ.</description>
+    
+    <variables>
+        <variable name="mydate" value="citrus:currentDate('yyyy-MM-dd'T'hh:mm:ss')"/>
+        <variable name="messageID" value="citrus:randomNumber(10)"/>
+    </variables>
+    
+    <actions>
+<!--     	<load>
+            <properties file="file:c:\Workspace\CitrusFM\FirstCitrusProject\load.properties"/>
+        </load> -->
+        <echo>
+	          <message>Clean queues</message>
+	    </echo>
+        <jms:purge-jms-queues connection-factory="jmsQueueConnectionFactory">
+			<jms:queue name="${jmsQueueReq}"/>
+			<jms:queue name="${jmsQueueResp}"/>
+		</jms:purge-jms-queues>
+        
+        <parallel>
+        
+	        <sequential>
+	        	<sleep/>
+	        	<echo>
+						<message>This is firstSeqMessage</message>
+				</echo>
+	        	<sleep/>
+	        	<echo>
+						<message>This is secondSeqMessage</message>
+				</echo>
+	        </sequential>
+	        
+	    	<echo>
+		          <message>Send message NewPIN: "citrus:currentDate('hh:mm:ss.SSSZ')"</message>
+		    </echo>
+		    <!-- <sleep time="4"/> -->
+	    	<send endpoint="requestQueue">
+	    		<message>
+	    			<resource file="classpath:templates/jmsXMLRequest.xml" />
+	    		</message>
+	    		<header>
+					<element name="ServiceName" value="NewPIN"/>
+					<!-- <element name="MessageId" value="${messageID}"/> -->
+				</header>
+			</send>
+
+	    	<echo>
+		          <message>Send message ChangePIN: "citrus:currentDate('hh:mm:ss.SSSZ')"</message>
+		    </echo>
+	    	<send endpoint="requestQueue">
+	    		<message>
+	    			<resource file="classpath:templates/jmsXMLRequest.xml" />
+	    		</message>
+	    		<header>
+					<element name="ServiceName" value="ChangePIN"/>
+				</header>
+			</send>
+
+	    	<echo>
+		          <message>Send message CreatePINBlock: "citrus:currentDate('hh:mm:ss.SSSZ')"</message>
+		    </echo>
+			<send endpoint="requestQueue">
+	    		<message>
+	    			<resource file="classpath:templates/jmsXMLRequest.xml" />
+	    		</message>
+	    		<header>
+					<element name="ServiceName" value="CreatePINBlock"/>
+				</header>
+			</send>
+    	</parallel>
+
+<!--     <catch exception="com.consol.citrus.exceptions.CitrusRuntimeException"> -->
+    	<receive endpoint="responseQueue">
+    		<selector>
+    			<element name="ServiceName" value="NewPIN" />
+			</selector>
+		    <message type="xml" schema-validation="false">
+		        <validate>
+		        	<xpath expression="//ns1:response/ns1:NewPINResponse/@ResultCode" value="0"/>
+		        	<xpath expression="//ns1:response/ns1:NewPINResponse/@ErrorString" value=""/>
+
+        			<!-- <namespace prefix="ns1" value='http://www.vtb24.ru/ApplicationObjectLibrary/TWOSH/Providers/BankCardTWOSHProvA/V1'/> -->
+		        </validate>
+		    </message>
+		    <header>
+    			<element name="ServiceName" value="NewPIN"/>
+			</header>
+	  	</receive>
+<!-- 	  </catch> -->
+
+		<receive endpoint="responseQueue">
+    		<selector>
+    			<element name="ServiceName" value="ChangePIN" />
+			</selector>
+		    <message type="xml" schema-validation="false">
+		        <validate>
+		        	<xpath expression="//ns1:response/ns1:NewPINResponse/@ResultCode" value="0"/>
+		        	<xpath expression="//ns1:response/ns1:NewPINResponse/@ErrorString" value=""/>
+		        </validate>
+		    </message>
+		    <header>
+    			<element name="ServiceName" value="ChangePIN"/>
+			</header>
+	  	</receive>
+
+<!-- 	    <receive endpoint="responseQueue">
+    		<selector>
+    			<element name="ServiceName" value="CreatePINBlock" />
+			</selector>
+		    <message type="xml" schema-validation="false">
+		        <validate>
+		        	<xpath expression="//ns1:response/ns1:CreatePINBlockResponse/@ResultCode" value="0"/>
+		        	<xpath expression="//ns1:response/ns1:CreatePINBlockResponse/@ErrorString" value=""/>
+		        </validate>
+		    </message>
+		    <header>
+    			<element name="ServiceName" value="CreatePINBlock"/>
+			</header>
+	  	</receive> -->
+	    
+    </actions>
+    
+  </testcase>
+
+</spring:beans>

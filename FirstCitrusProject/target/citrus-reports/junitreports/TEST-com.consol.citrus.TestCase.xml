@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.consol.citrus.TestCase" time="0.0" tests="1" errors="0" skipped="0" failures="1">
+    <testcase name="${service}" classname="com.consol.citrus.TestCase" time="0.0">
+      <failure type="com.consol.citrus.exceptions.CitrusRuntimeException" message="Failed to load test case">
+        <![CDATA[
+        com.consol.citrus.exceptions.CitrusRuntimeException: Failed to load test case
+	at com.consol.citrus.context.TestContext.handleError(TestContext.java:448)
+	at com.consol.citrus.common.XmlTestLoader.loadApplicationContext(XmlTestLoader.java:91)
+	at com.consol.citrus.common.XmlTestLoader.load(XmlTestLoader.java:62)
+	at com.consol.citrus.testng.AbstractTestNGCitrusTest.run(AbstractTestNGCitrusTest.java:105)
+	at com.consol.citrus.testng.AbstractTestNGCitrusTest.run(AbstractTestNGCitrusTest.java:70)
+	at org.testng.internal.MethodInvocationHelper.invokeHookable(MethodInvocationHelper.java:221)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:657)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+Caused by: java.lang.IllegalArgumentException: Could not resolve placeholder 'service' in value "com\citrus\myproject\${service}.xml"
+	at org.springframework.util.PropertyPlaceholderHelper.parseStringValue(PropertyPlaceholderHelper.java:172)
+	at org.springframework.util.PropertyPlaceholderHelper.replacePlaceholders(PropertyPlaceholderHelper.java:124)
+	at org.springframework.core.env.AbstractPropertyResolver.doResolvePlaceholders(AbstractPropertyResolver.java:237)
+	at org.springframework.core.env.AbstractPropertyResolver.resolveRequiredPlaceholders(AbstractPropertyResolver.java:211)
+	at org.springframework.core.env.AbstractEnvironment.resolveRequiredPlaceholders(AbstractEnvironment.java:571)
+	at org.springframework.context.support.AbstractRefreshableConfigApplicationContext.resolvePath(AbstractRefreshableConfigApplicationContext.java:125)
+	at org.springframework.context.support.AbstractRefreshableConfigApplicationContext.setConfigLocations(AbstractRefreshableConfigApplicationContext.java:81)
+	at org.springframework.context.support.ClassPathXmlApplicationContext.<init>(ClassPathXmlApplicationContext.java:142)
+	at com.consol.citrus.common.XmlTestLoader.loadApplicationContext(XmlTestLoader.java:86)
+	... 24 more
+
+        ]]>
+      </failure>
+    </testcase>
+</testsuite>
